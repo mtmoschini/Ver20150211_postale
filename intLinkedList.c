@@ -1,4 +1,4 @@
-#include <stdio.h>
+git #include <stdio.h>
 #include <stdlib.h>
 
 #include "intLinkedList.h"
@@ -9,6 +9,11 @@
  */
 int size(intLinkedList list) {
     int r=0;
+    while(list!=NULL)
+    {
+        r++:
+        list=list->next;
+    }
     
     // TODO Implementa il corpo della funzione
     
@@ -23,7 +28,18 @@ int size(intLinkedList list) {
  */
 intLinkedList insertAtBeginning(intLinkedList list, int newKey) {
     
-    // TODO Implementa il corpo della funzione
+    intLinkedList * temp;
+    temp=(intLinkedList *)malloc(sizeof(intLinkedList));
+    if(temp!=NULL)
+    {
+        temp->next=list;
+        temp->key=newkey;
+        list=temp;
+    }
+    else
+    {
+        return NULL;
+    }
     
     return list;
 }
@@ -39,6 +55,12 @@ intLinkedList insertAtBeginning(intLinkedList list, int newKey) {
  */
 void printList(intLinkedList list) {
     
+    int i;
+    while(list!=NULL)
+    {
+        printf("%d; ",list->key);
+        list=list->next;
+    }
     // TODO Implementa il corpo della funzione
     
     return;
@@ -51,6 +73,15 @@ void printList(intLinkedList list) {
  */
 intLinkedList empty(intLinkedList list) {
     
+    intLinkedList * temp;
+    temp=(intLinkedList)malloc(sizeof(intLinkedList));
+   
+    if(list!=NULL)
+    {
+        temp=list;
+        list=list->next;
+        free(temp);
+    }
     // TODO Implementa il corpo della funzione
     
     return NULL;
